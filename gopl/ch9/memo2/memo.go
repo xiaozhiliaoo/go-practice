@@ -1,0 +1,32 @@
+package memo
+
+import "sync"
+
+type Memo struct {
+	f     Func
+	mu    sync.Mutex
+	cache map[string]result
+}
+
+type Func func(key string) (interface{}, error)
+
+type result struct {
+	value interface{}
+	err   error
+}
+
+func New(f Func) *Memo {
+	return &Memo{f: f, cache: make(map[string]result)}
+}
+
+func (memo *Memo) Get(key string) (interface{}, error) {
+	memo.mu.Lock()
+	res, ok := memo.cache[key]
+	if !ok {
+		//不在缓存中调用方法f()
+		res.value, res.err = memo.f(key)
+		memo.cache[key] = res
+	}
+	memo.mu.Unlock()
+	return res.value, res.err
+}
