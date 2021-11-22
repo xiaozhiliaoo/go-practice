@@ -1,11 +1,12 @@
 package main
 
 import (
-	"go-practice/gopl/ch4/github"
 	"log"
 	"os"
 	"text/template"
 	"time"
+
+	"github.com/xiaozhiliaoo/go-practice/gopl/ch4/github"
 )
 
 const templ = `{{.TotalCount}} issues:

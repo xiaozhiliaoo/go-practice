@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"gopl.io/ch5/links"
 	"log"
 	"os"
+
+	"github.com/xiaozhiliaoo/go-practice/gopl/ch5/links"
 )
 
 func crawl(url string) []string {

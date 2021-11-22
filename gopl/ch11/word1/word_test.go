@@ -2,8 +2,9 @@ package word_test
 
 import (
 	//包名   包的路径   echo %GOPATH%
-	word "go-practice/gopl/ch11/word1"
 	"testing"
+
+	word "github.com/xiaozhiliaoo/go-practice/gopl/ch11/word1"
 )
 
 func TestPalindrome(t *testing.T) {

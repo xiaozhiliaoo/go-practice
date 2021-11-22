@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"go-practice/gopl/ch4/github"
 	"log"
+
+	"github.com/xiaozhiliaoo/go-practice/gopl/ch4/github"
 	//"os"
 )
 

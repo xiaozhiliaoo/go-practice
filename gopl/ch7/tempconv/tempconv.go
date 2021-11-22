@@ -3,7 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"go-practice/gopl/ch2/tempconv"
+
+	"github.com/xiaozhiliaoo/go-practice/gopl/ch2/tempconv"
 )
 
 type celsiusFlag struct {

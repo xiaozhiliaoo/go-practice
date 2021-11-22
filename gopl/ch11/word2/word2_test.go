@@ -1,10 +1,11 @@
 package word_test
 
 import (
-	word "go-practice/gopl/ch11/word2"
 	"math/rand"
 	"testing"
 	"time"
+
+	word "github.com/xiaozhiliaoo/go-practice/gopl/ch11/word2"
 )
 
 func randomPalindrome(rng *rand.Rand) string {

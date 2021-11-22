@@ -4,7 +4,7 @@ import (
 	"sync"
 	"testing"
 
-	"go-practice/gopl/ch9/bank3"
+	bank "github.com/xiaozhiliaoo/go-practice/gopl/ch9/bank3"
 )
 
 func TestBank(t *testing.T) {

@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"go-practice/gopl/ch7/eval"
 	"net/http"
+
+	"github.com/xiaozhiliaoo/go-practice/gopl/ch7/eval"
 )
 
 func parseAndCheck(s string) (eval.Expr, error) {

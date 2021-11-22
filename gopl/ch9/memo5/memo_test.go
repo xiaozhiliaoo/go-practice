@@ -6,8 +6,8 @@ package memo_test
 import (
 	"testing"
 
-	"go-practice/gopl/ch9/memo5"
-	"go-practice/gopl/ch9/memotest"
+	memo "github.com/xiaozhiliaoo/go-practice/gopl/ch9/memo5"
+	"github.com/xiaozhiliaoo/go-practice/gopl/ch9/memotest"
 )
 
 var httpGetBody = memotest.HTTPGetBody

@@ -2,8 +2,9 @@ package bank_test
 
 import (
 	"fmt"
-	"go-practice/gopl/ch9/bank"
 	"testing"
+
+	"github.com/xiaozhiliaoo/go-practice/gopl/ch9/bank"
 )
 
 func TestBank(t *testing.T) {

@@ -2,8 +2,8 @@ package main
 
 import (
 	//导入包重命名
-	fn1 "go-practice/gopl/ch10/fn1"
-	fn2 "go-practice/gopl/ch10/fn2"
+	fn1 "github.com/xiaozhiliaoo/go-practice/gopl/ch10/fn1"
+	fn2 "github.com/xiaozhiliaoo/go-practice/gopl/ch10/fn2"
 )
 
 func main() {

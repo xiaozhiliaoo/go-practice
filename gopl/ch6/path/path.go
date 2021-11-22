@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"go-practice/gopl/ch6/geometry"
+
+	"github.com/xiaozhiliaoo/go-practice/gopl/ch6/geometry"
 )
 
 type Path []geometry.Point

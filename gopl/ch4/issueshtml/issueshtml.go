@@ -1,11 +1,12 @@
 package main
 
 import (
-	"go-practice/gopl/ch4/github"
 	"html/template"
 	"log"
 	"os"
 	"time"
+
+	"github.com/xiaozhiliaoo/go-practice/gopl/ch4/github"
 )
 
 var issueList = template.Must(template.New("issuelist").Parse(`

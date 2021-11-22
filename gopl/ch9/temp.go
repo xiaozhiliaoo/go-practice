@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 )
 
@@ -11,7 +10,7 @@ func main() {
 	//go func() { x = make([]int, 1000000) }()
 	//x[999999] = 1
 
-	errors.New()
+	//errors.New()
 
 	var x, y int
 	go func() {

@@ -1,7 +1,7 @@
 package cake_test
 
 import (
-	"go-practice/gopl/ch8/cake"
+	"github.com/xiaozhiliaoo/go-practice/gopl/ch8/cake"
 	"testing"
 	"time"
 )

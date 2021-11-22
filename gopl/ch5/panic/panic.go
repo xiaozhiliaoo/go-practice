@@ -19,6 +19,3 @@ func soleTitle(doc string) (title string, err error) {
 	}
 }
 
-func main() {
-
-}
