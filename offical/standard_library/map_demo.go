@@ -33,9 +33,6 @@ func main() {
 	var w io.Writer
 	w = os.Stdout
 	f := w.(*os.File)
-
-	open, err := os.Open("22")
-
 }
 
 func DefaultIfBlank(str string, defaultStr string) string {
