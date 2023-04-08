@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func basename(s string) string {
 	for i := len(s) - 1; i >= 0; i-- {
 		if s[i] == '/' {
@@ -17,5 +19,7 @@ func basename(s string) string {
 }
 
 func main() {
-
+	fmt.Println(basename("a/b/c.go"))
+	fmt.Println(basename("c.d"))
+	fmt.Println(basename("abc"))
 }

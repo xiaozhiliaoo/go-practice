@@ -98,10 +98,10 @@ func g(x int) int {
 var cwd string
 
 func init() {
-	//cwd , err := os.Getwd()
-	//if err != nil {
-	//	log.Fatalf("os.Getwd failed: %v", err)
-	//}
+	cwd, err := os.Getwd()
+	if err != nil {
+		log.Fatalf("os.Getwd failed: %v", err)
+	}
 }
 
 func init() {

@@ -1,6 +1,9 @@
 package main
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 func basename(s string) string {
 	slash := strings.LastIndex(s, "/")
@@ -12,5 +15,7 @@ func basename(s string) string {
 }
 
 func main() {
-
+	fmt.Println(basename("a/b/c.go"))
+	fmt.Println(basename("c.d"))
+	fmt.Println(basename("abc"))
 }
