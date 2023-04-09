@@ -20,7 +20,7 @@ func main() {
 		"Uranus",
 		"Neptune",
 	}
-
+	//如果改成切片，会改变值
 	terraform(planets)
 	fmt.Println(planets)
 }

@@ -31,6 +31,8 @@ func (l location) days(l2 location) int {
 	// To-do: complicated distance calculation
 	return 5
 }
+
+//把这方法删除了，会days方法冲突，不知道是location的还是sol的days方法
 func (r report) days(s2 sol) int {
 	return r.sol.days(s2)
 }
