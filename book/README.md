@@ -1,6 +1,8 @@
 里面的书很全！！！
 https://github.com/KeKe-Li/book/tree/master/Go
 
+https://github.com/diptomondal007/GoLangBooks/
+
 << Concurrency in Go >>
 
 https://katherine.cox-buday.com/
