@@ -1,6 +1,9 @@
 package main
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 func Inc32(counter int32) int32 {
 	if counter == math.MaxInt32 {
@@ -47,4 +50,8 @@ func MultiplyInt(a, b int) int {
 		panic("integer overflow")
 	}
 	return result
+}
+
+func main() {
+	fmt.Printf("%d", Inc32(math.MaxInt32+2))
 }

@@ -1,4 +1,9 @@
-//这里不能命名别的包名，因为一个目录下所有文件只能用一个包名
+// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
+// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+// Test of echo command.  Run with: go test gopl.io/ch11/echo
+
+//!+
 package main
 
 import (
@@ -22,9 +27,10 @@ func TestEcho(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		descr := fmt.Sprintf("echo(%v,%q,%q)", test.newline, test.sep, test.args)
-		//out变量是echo.go的，改变了
-		out = new(bytes.Buffer)
+		descr := fmt.Sprintf("echo(%v, %q, %q)",
+			test.newline, test.sep, test.args)
+
+		out = new(bytes.Buffer) // captured output
 		if err := echo(test.newline, test.sep, test.args); err != nil {
 			t.Errorf("%s failed: %v", descr, err)
 			continue
@@ -35,3 +41,5 @@ func TestEcho(t *testing.T) {
 		}
 	}
 }
+
+//!-

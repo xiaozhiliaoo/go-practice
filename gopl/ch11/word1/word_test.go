@@ -1,42 +1,43 @@
-package word_test
+// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
+// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
-import (
-	//包名   包的路径   echo %GOPATH%
-	"testing"
+//!+test
+package word
 
-	word "github.com/xiaozhiliaoo/go-practice/gopl/ch11/word1"
-)
+import "testing"
 
 func TestPalindrome(t *testing.T) {
-	if !word.IsPalindrome("detartrated") {
+	if !IsPalindrome("detartrated") {
 		t.Error(`IsPalindrome("detartrated") = false`)
 	}
-	if !word.IsPalindrome("kayak") {
+	if !IsPalindrome("kayak") {
 		t.Error(`IsPalindrome("kayak") = false`)
 	}
 }
 
 func TestNonPalindrome(t *testing.T) {
-	if word.IsPalindrome("palindrome") {
+	if IsPalindrome("palindrome") {
 		t.Error(`IsPalindrome("palindrome") = true`)
 	}
 }
 
+//!-test
+
+// The tests below are expected to fail.
+// See package gopl.io/ch11/word2 for the fix.
+
+//!+more
 func TestFrenchPalindrome(t *testing.T) {
-	if !word.IsPalindrome("été") {
+	if !IsPalindrome("été") {
 		t.Error(`IsPalindrome("été") = false`)
 	}
 }
 
 func TestCanalPalindrome(t *testing.T) {
 	input := "A man, a plan, a canal: Panama"
-	if !word.IsPalindrome(input) {
+	if !IsPalindrome(input) {
 		t.Errorf(`IsPalindrome(%q) = false`, input)
 	}
 }
 
-func BenchmarkIsPalindrome(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		word.IsPalindrome("A man, a plan, a canal: Panama")
-	}
-}
+//!-more

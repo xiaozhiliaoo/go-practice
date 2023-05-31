@@ -24,7 +24,7 @@ func triple(x int) (result int) {
 
 func f(x int) {
 	fmt.Printf("f(%d)\n", x+0/x) // panics if x == 0
-	defer fmt.Printf("defer %d\n", x)
+	defer fmt.Printf("defer2 %d\n", x)
 	f(x - 1)
 }
 
@@ -35,7 +35,7 @@ func printStack() {
 }
 
 //func Parse(input string) (s *Syntax, err error) {
-//	defer func() {
+//	defer2 func() {
 //		if p := recover(); p != nil {
 //			err = fmt.Errorf("internal error: %v", p)
 //		}
