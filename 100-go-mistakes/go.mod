@@ -2,4 +2,9 @@ module github.com/teivah/100-go-mistakes
 
 go 1.18
 
-require golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
+require (
+	github.com/elliotchance/orderedmap v1.5.0 // indirect
+	github.com/elliotchance/orderedmap/v2 v2.2.0 // indirect
+	github.com/huandu/xstrings v1.4.0 // indirect
+	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
+)

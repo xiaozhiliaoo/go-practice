@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io"
-	"os"
 )
 
 func main() {
@@ -30,9 +28,6 @@ func main() {
 
 	fmt.Println("---end---")
 
-	var w io.Writer
-	w = os.Stdout
-	f := w.(*os.File)
 }
 
 func DefaultIfBlank(str string, defaultStr string) string {
