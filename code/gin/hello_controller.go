@@ -1,15 +1,15 @@
-package service
+package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"io/ioutil"
+	"github.com/gin-gonic/gin/binding"
 	"log"
 )
 
 type HelloReq struct {
-	ModelID   int    `json:"model_id"`
-	SessionID string `json:"session_id"`
-	Question  string `json:"question"`
+	ID       int    `json:"id"`
+	Question string `json:"question"`
+	Date     string `json:"date"`
 }
 
 func Hello(c *gin.Context) {
@@ -17,14 +17,16 @@ func Hello(c *gin.Context) {
 	log.Printf("isHello:%t", isHello)
 
 	req := HelloReq{}
-	if err := c.ShouldBind(&req); err != nil {
-		body, _ := ioutil.ReadAll(c.Request.Body)
-		log.Printf("ShouldBind error:%+v,body:%+v", err, body)
+	if err := c.ShouldBindBodyWith(&req, binding.JSON); err != nil {
+		//body, _ := ioutil.ReadAll(c.Request.Body)
+		log.Printf("ShouldBind error:%+v", err)
 		c.Writer.WriteString("ShouldBind失败")
 		return
 	}
 
 	log.Printf("hello body:%+v", req)
+
+	c.Set("hello_answer", req)
 
 	c.Writer.WriteString(c.Query("id") + "---" + c.Query("name"))
 
