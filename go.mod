@@ -9,6 +9,7 @@ require (
 	github.com/google/go-querystring v1.1.0
 	github.com/lib/pq v1.10.4
 	github.com/metal3d/go-slugify v0.0.0-20160607203414-7ac2014b2f23
+	github.com/robfig/cron/v3 v3.0.0
 	github.com/spf13/cast v1.5.0
 	github.com/torbiak/gopl v0.0.0-20180919155712-052bf308f615
 	golang.org/x/net v0.0.0-20210929193557-e81a3d93ecf6
