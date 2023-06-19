@@ -13,8 +13,19 @@ type HelloReq struct {
 }
 
 func Hello(c *gin.Context) {
+	log.Printf("go into Hello")
+
+	// 模拟一个长时间的处理
+	//time.Sleep(10 * time.Second)
+
+	log.Printf("after 10s into Hello")
+
+	// 输出 Hello
+	c.String(200, "Hello")
+
 	isHello := c.Value("is_hello").(bool)
-	log.Printf("isHello:%t", isHello)
+	isHelloTwo := c.GetBool("is_hello_two")
+	log.Printf("isHello:%t,isHelloTwo:%t", isHello, isHelloTwo)
 
 	req := HelloReq{}
 	if err := c.ShouldBindBodyWith(&req, binding.JSON); err != nil {
