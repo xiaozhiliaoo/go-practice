@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 	"log"
+	"time"
 )
 
 type HelloReq struct {
@@ -15,8 +16,10 @@ type HelloReq struct {
 func Hello(c *gin.Context) {
 	log.Printf("go into Hello")
 
+	c.Set("111", 2222)
+
 	// 模拟一个长时间的处理
-	//time.Sleep(10 * time.Second)
+	time.Sleep(30 * time.Second)
 
 	log.Printf("after 10s into Hello")
 

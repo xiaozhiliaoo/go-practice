@@ -4,6 +4,7 @@ import (
 	"github.com/gin-contrib/timeout"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	_ "net/http/pprof"
 	"time"
 )
 
@@ -20,8 +21,9 @@ func main() {
 		timeout.New(
 			timeout.WithTimeout(5*time.Second),
 			timeout.WithHandler(Hello),
-			timeout.WithResponse(PostProcessing),
-		))
+			timeout.WithResponse(PostProcessingTimeOut),
+		),
+		PostProcessing)
 
 	r.POST("/hello-timeout", timeout.New(
 		timeout.WithTimeout(100*time.Microsecond),

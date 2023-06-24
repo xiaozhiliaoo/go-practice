@@ -1,0 +1,6 @@
+datasource:
+  db_url: "root:238888@tcp(127.0.0.1:3306)/training?charset=utf8mb4&timeout=1s&parseTime=true&interpolateParams=true&loc=Local"
+  max_idle: 10
+  max_open: 50
+  max_idle_time: 600000 # 10分钟
+  max_life_time: 300000 # 5分钟
