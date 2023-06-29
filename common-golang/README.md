@@ -2,5 +2,5 @@
 
 用于测试这个项目：
 
-https://github.com/xiaozhiliaoo/golang-common
+https://github.com/xiaozhiliaoo/common-golang
 
