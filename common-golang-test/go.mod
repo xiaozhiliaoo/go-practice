@@ -1,4 +1,4 @@
-module golang-common
+module common-golang-test
 
 go 1.18
 
