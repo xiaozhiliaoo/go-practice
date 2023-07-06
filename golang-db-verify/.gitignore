@@ -1,0 +1,30 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Editor files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temp files
+.DS_Store
+*.temp
+*.tmp
+
+# Project's binary
+/cmd/cmd
+/bin/opportunity
+/*/config/trpc_go.yaml
+/bin/groupsend
