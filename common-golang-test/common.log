@@ -1,0 +1,4 @@
+{"level":"INFO","ts":"2023-06-29T22:37:32.675406+08:00","caller":"common-mysql/main.go:44","msg":"dir is:/Users/jiandanlli/Desktop/gitspace/github/go-practice/common-golang-test"}
+{"level":"INFO","ts":"2023-07-01T14:06:02.446262+08:00","caller":"common-mysql/main.go:44","msg":"dir is:/Users/jiandanlli/Desktop/gitspace/github/go-practice/common-golang-test"}
+{"level":"INFO","ts":"2023-07-01T14:06:07.041787+08:00","caller":"common-mysql/main.go:44","msg":"dir is:/Users/jiandanlli/Desktop/gitspace/github/go-practice/common-golang-test"}
+{"level":"INFO","ts":"2023-07-01T14:06:13.181739+08:00","caller":"common-mysql/main.go:44","msg":"dir is:/Users/jiandanlli/Desktop/gitspace/github/go-practice/common-golang-test"}
