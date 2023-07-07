@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+table,th,td {
+  padding: 5px;
+  border: 1px solid black;
+}
+
+</style>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>获取消息历史记录</title>
+</head>
+
+<body>
+    <h1>表格输出：</h1>
+	<table>
+       <thead>
+        <th>ID</th>
+        <th>UserID</th>
+        <th>SessionID</th>
+        <th>Score</th>
+        <th>Reason</th>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>StaffName</th>
+        <th style="width:600px">Prompt</th>
+        <th>IndexContent</th>
+        <th>ModelID</th>
+        <th>TraceID</th>
+        <th>CreateTime</th>
+        <th>UpdateTime</th>
+    </thead>
+      <tr>
+        <td>{{ .ID }}</td>
+        <td>{{ .UserID }}</td>
+        <td>{{ .SessionID }}</td>
+        <td>{{ .Score }}</td>
+        <td>{{ .Reason }}</td>
+        <td>{{ .Question }}</td>
+        <td>{{ .Answer }}</td>
+        <td>{{ .StaffName }}</td>
+        <td>{{ .Prompt }}</td>
+        <td>{{ .IndexContent }}</td>
+        <td>{{ .ModelID }}</td>
+        <td>{{ .TraceID }}</td>
+        <td>{{ .CreateTime }}</td>
+        <td>{{ .UpdateTime }}</td>
+      </tr>
+    </table>
+    <hr>
+    <h1>JSON输出：</h1>
+    <span>{{ .AllData }}</span>
+</body>
+</html>
