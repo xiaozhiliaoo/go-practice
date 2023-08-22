@@ -2,10 +2,14 @@ package main
 
 import (
 	"fmt"
+	"github.com/spf13/cast"
 	"math"
 )
 
 func main() {
+
+	toBool := cast.ToBool("true")
+	fmt.Println(toBool)
 
 	fmt.Println(splitString("123456488", 2))
 

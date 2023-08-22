@@ -12,9 +12,17 @@ type WrapperReq struct {
 }
 
 func main() {
-	req := Req{}
-	modify(&req)
+	//req := Req{}
+	//modify(&req)
+	req := []Req{{"111", 11}, {"222", 222}}
+	modifySlice(req)
 	fmt.Printf("%+v", req)
+}
+
+func modifySlice(req []Req) {
+	for i := range req {
+		req[i].Answer += "jiandan"
+	}
 }
 
 func modify(req *Req) {
