@@ -6,6 +6,7 @@ import (
 	"github.com/gin-contrib/sse"
 	"github.com/gin-gonic/gin"
 	jsoniter "github.com/json-iterator/go"
+	"github.com/spf13/cast"
 	"golang.org/x/sync/errgroup"
 	"io"
 	"net/http"
@@ -93,23 +94,18 @@ func ChatStream(c *gin.Context) {
 			case <-stopTicker.C:
 				cancelV, ok := <-cancelCh
 				if ok {
-					var r any = cancelV
-					if !v2 {
-						if cancelV.Code != 0 && cancelV.Code != ErrCodeStop {
-							r = map[string]string{"data": cancelV.Message} // 错误处理
-						} else if rsp, ok := cancelV.Data.(ChatRsp); ok {
-							r = map[string]any{"data": rsp.Answer, "record_id": strconv.Itoa(int(rsp.RecordID))} // 正常处理
-						}
+					fmt.Printf("stopTicker receive...%+v \n", cancelV)
+
+					stopStream := checkIsStop()
+					if stopStream {
+						fmt.Printf("check stop...%t \n", stopStream)
+						cancelV.Code = ErrCodeStop
+						s, _ := jsoniter.MarshalToString(cancelV)
+						clientChan <- s
+						break stop
 					}
-					s, _ := jsoniter.MarshalToString(r)
-					fmt.Printf("cancel data:%s\n", s)
 				}
-				stopStream := checkIsStop()
-				if stopStream {
-					fmt.Printf("check stop...%t \n", stopStream)
-					clientChan <- stop
-					break stop
-				}
+
 			case <-ticker.C:
 				clientChan <- keepalive
 			case <-timer.C:
@@ -130,11 +126,6 @@ func ChatStream(c *gin.Context) {
 				}
 				s, _ := jsoniter.MarshalToString(r)
 				clientChan <- s
-				//case <-c.Request.Context().Done():
-				//	fmt.Printf("c.Request.Context cancel")
-				//case <-ctx.Done():
-				//	fmt.Println("请求已取消")
-				//	c.JSON(http.StatusRequestTimeout, gin.H{"message": "请求已取消"})
 			}
 		}
 		return nil
@@ -162,7 +153,7 @@ func ChatStream(c *gin.Context) {
 	})
 
 	waitErr := g.Wait()
-	fmt.Printf("wait done:%+v", waitErr)
+	fmt.Printf("wait done:%+v\n", waitErr)
 }
 
 func checkIsStop() bool {
@@ -182,17 +173,13 @@ func (stream *Event) listen() {
 }
 
 func Chat(c *gin.Context) {
+	var res string
 	for i := 0; i < 10; i++ {
 		time.Sleep(time.Second * 1)
-		output(c, RPCResponse{Code: 0, Message: "OK", Data: i}, false)
+		res += cast.ToString(i)
+		output(c, RPCResponse{Code: 0, Message: "OK", Data: res}, false)
 	}
 	output(c, RPCResponse{Code: 0, Message: "Done", Data: "Done"}, true)
-
-	select {
-	case <-c.Request.Context().Done():
-		// abort
-		return
-	}
 }
 
 func output(c *gin.Context, r RPCResponse, final bool) {

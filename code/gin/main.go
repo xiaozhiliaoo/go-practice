@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"github.com/gin-contrib/timeout"
 	"github.com/gin-gonic/gin"
+	jsoniter "github.com/json-iterator/go"
 	"html/template"
 	"net/http"
 	_ "net/http/pprof"
@@ -11,6 +13,12 @@ import (
 )
 
 func main() {
+
+	res := map[string]any{"data": "1111", "record_id": "qqqq", "stopChat": true}
+	s, _ := jsoniter.MarshalToString(res)
+	substr := "\"stopChat\":true"
+	contains := strings.Contains(s, substr)
+	fmt.Println(contains)
 
 	r := gin.New()
 
