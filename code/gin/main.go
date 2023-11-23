@@ -35,6 +35,8 @@ func main() {
 
 	r.POST("/chat", StreamV2Middleware, stream.serve(), ChatStream)
 
+	r.POST("/stream", Stream)
+
 	r.GET("/stop", StopStream)
 
 	r.GET("/test", Test)

@@ -78,6 +78,7 @@ func ChatStream(c *gin.Context) {
 	ticker := time.NewTicker(2 * time.Second)            // 定时
 	timer := time.NewTimer(5 * time.Minute)              // 超时
 	stopTicker := time.NewTicker(250 * time.Millisecond) // 定时
+	selectCount := 0
 
 	g.Go(func() error {
 		Chat(c)
@@ -92,7 +93,9 @@ func ChatStream(c *gin.Context) {
 		for {
 			select {
 			case <-stopTicker.C:
+				selectCount++
 				cancelV, ok := <-cancelCh
+				fmt.Printf("select stopTicker count:%d\n \n", selectCount)
 				if ok {
 					fmt.Printf("stopTicker receive...%+v \n", cancelV)
 
@@ -241,4 +244,19 @@ type Event struct {
 	NewClients    chan chan string     // New client connections
 	ClosedClients chan chan string     // Closed client connections
 	TotalClients  map[chan string]bool // Total client connections
+}
+
+func Stream(c *gin.Context) {
+	for i := 0; i < 10; i++ {
+		time.Sleep(500 * time.Millisecond)
+		c.Stream(func(w io.Writer) bool {
+			if i == 8 {
+				fmt.Printf("at 8")
+				return false
+			} else {
+				c.Render(-1, sse.Event{Data: i})
+			}
+			return false
+		})
+	}
 }
