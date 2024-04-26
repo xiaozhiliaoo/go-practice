@@ -29,3 +29,10 @@ func File(c *gin.Context) {
 
 	c.DataFromReader(http.StatusOK, contentLength, contentType, reader, extraHeaders)
 }
+
+func GetParams(c *gin.Context) {
+	i64 := c.Query("id")
+	name := c.Query("name")
+	c.JSON(http.StatusOK, i64+name)
+	return
+}

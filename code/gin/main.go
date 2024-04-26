@@ -43,6 +43,8 @@ func main() {
 
 	r.GET("/file", File)
 
+	r.GET("/getParams", GetParams)
+
 	r.POST("/hello",
 		PreProcessing,
 		Hello,
