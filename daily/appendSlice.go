@@ -19,5 +19,4 @@ func main() {
 	infos := []ProjectFileDBInfo{{ID: 1, Url: "www.baidu.com"}, {ID: 2, Url: "www.alibaba.com"}}
 	addUrlPrefix(infos)
 	fmt.Printf("%+v", infos)
-
 }

@@ -23,6 +23,8 @@ func TestGetCurl(t *testing.T) {
 	algorithm := "TC3-HMAC-SHA256"
 	version := "2018-12-25"
 	action := "GetAuthInfoByUin"
+	service := ""
+	region := ""
 	var timestamp = time.Now().Unix()
 	// step 1: build canonical request string
 	httpRequestMethod := "POST"
